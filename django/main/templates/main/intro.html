@@ -1,0 +1,68 @@
+<!-- INTRODUCTION SECTION -->
+
+
+<div class="row">
+	<div class="col-sm-6">
+		<h2>INTRODUCTION</h2>
+	</div>
+</div>
+
+<div class="row vertical-align inner">
+	<div class="col-sm-5 col-sm-push-6">
+		<h3>Understanding predictions</h3>
+		<p>
+			Moshiko's Eyebrows app brings an easy-to-use tool which lets you understand and visualize the facial landmarks used for the system to recognize a facial image.   
+		</p>
+		<p>
+			Face recognition algorithms use highly complicated structures, known as Deep Neural Networks, that are being used to recognize identity's based on their facial images.  
+		</p>
+		<p>
+			Although we know how the underlying computation process works, those architectures consist millions of parameters which make it impossible to iterpert why a certain prediction was made for a certain face.
+		</p>
+	</div>
+	<div class="col-sm-5 col-sm-pull-5">
+		{% load static%}
+		<img src="{% static "main/matrix_neo.jpg" %}" class="img-responsive img-rounded center-block img-rounded" id="matrix">
+	</div>
+</div>
+
+<div class="row vertical-align inner">
+	<div class="col-sm-2 col-sm-push-1 text-center">
+		<h3>Why do we need it?</h3>
+		<p>
+			Understanding the features that gave rise to a certain prediction can help us understand our system better.
+		</p>
+	</div>
+	<div class="col-sm-2 col-sm-push-3 text-center">
+		<img src="{% static "main/v-sign.png" %}" class="img-responsive center-block icon" id="v-sign">
+
+		<p>
+			On correct predictions, 
+			this will help us gain trust in the sysytem and justify the result,
+			thus allow it to be part of an automated process
+		</p>
+	</div>
+	<div class="col-sm-2 col-sm-push-5 text-center">
+		<img src="{% static "main/x-sign.png" %}" class="img-responsive center-block icon" id="x-sign">
+
+		<p>
+			On incorrect predictions,
+			this will help us gain insight on why the failure occured
+			and help improve the algorithm itself and learn its fallbacks
+		</p>
+	</div>
+
+</div>
+
+<div class="row inner">
+	<div class="col-sm-12 text-center">
+		<h3>Our system</h3>
+			<p>
+				Using a simple interface, we let you query the system with your own images.
+			</p>
+			<p>
+				To demonstrate the concept and the power of visualization - your image will be compared to our database of celebs and you will know not only who do you look like, but also why.
+			</p>
+
+	</div>
+</div>

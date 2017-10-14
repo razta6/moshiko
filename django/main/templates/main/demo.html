@@ -1,0 +1,106 @@
+<!-- DEMO SECTION -->
+
+<div class="row">
+	<div class="col-sm-12">
+		<h2>DEMO</h2>
+	</div>
+</div>
+
+<div class="row inner">
+	<div class="col-sm-12">
+		<p>In this section we will walk through the stages in how to query the system</p>
+		{% load static%}
+		<p>For further details please reffer to the <a href="{% static "main/user_manual.pdf" %}" target="_blank">User Manual</a>.</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-3">
+		<h3>Stage 1:</h3>
+		<ul>
+			<li>Upload a facial image as a query</li>
+			<li>On a mobile device - you can just take a photo with the built-in camera</li>							
+		</ul>
+		<p>
+			Example:
+		</p>
+		{% load static%}
+		<img id="moshik" src="{% static "main/moshik.jpg" %}">	
+	</div>
+
+	<div class="col-sm-4 col-sm-push-1">
+		<h3>Stage 2:</h3>
+		<p>
+			Set the parameters.
+		</p>
+		<p>
+			Here is as example for the visualization and features filter
+		</p>
+		<p>
+			You can choose from 3 levels of filtering:
+		</p>
+		<ul>
+			<li>None: no filter is appliad. All visualiztaion levels are showen and all features are presented sorte from high to low</li>
+			<li>Medium: medium level of filtering</li>
+			<li>Local: the most localized filtering. Only the most significant features are presented.</li>
+		</ul>
+
+		<select id="demo_hm">
+			<option value="select" selected="selected">Select...</option>
+			<option value="none">None</option>
+			<option value="half">Medium</option>
+			<option value="local">Local</option>
+		</select>
+
+		<p>
+			For best results - use the "Local" level. In case no feature was found, consider lowering the threshold.
+		</p>
+	</div>
+
+	<div class="col-sm-3 col-sm-push-2">
+		<h3>Stage 3:</h3>
+		<p>Review the results</p>
+		<div id="select"></div>
+		<img class="demo_result img-responsive center-block" id="none" src="{%static "main/moshik-none.jpg" %}">
+		<img class="demo_result img-responsive center-block" id="half" src="{%static "main/moshik-medium.jpg" %}">
+		<img class="demo_result img-responsive center-block" id="local" src="{%static "main/moshik-local.jpg" %}">
+
+	</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+		$(document).ready(function(){
+
+			$("#demo_hm").change(function(){
+				var new_hm = $(this).val();
+				/*
+				alert("new: "+"#" + new_hm+"\n"+
+					"curr: "+"#" + curr_hm);
+				*/
+
+				$(".demo_result").hide();
+				if (new_hm!="select"){
+					$("#"+new_hm).show();
+				}
+				/*
+				switch (new_hm){
+					case "full":
+						$("#full").show();
+						break;
+					case "half":
+						$("#half").show();
+						break;
+					case "local":
+						$("#local").show();
+						break;
+				}
+				*/	
+									
+				
+			});
+		});
+
+</script>

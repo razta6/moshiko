@@ -1,0 +1,87 @@
+<!-- RESULTS SECTION -->
+
+<div class="row">
+
+	<div class="col-sm-12">
+		<h2>RESULTS</h2>
+	</div>
+</div>
+
+{% if err_msg %}
+
+	<div class="row inner">
+	
+		<div class="col-sm-12">
+			<p id="error_msg">
+				{{ err_msg }}
+			</p>
+		</div>
+
+	</div>
+
+{% else %}
+
+	<div class="row vertica-align inner">
+
+		<div class="col-sm-3">
+			<h3>YOU LOOK MOSTLY LIKE:</h3>
+			<p>
+				{% if result_top_id %}
+					<li><a href="http://images.google.com/search?tbm=isch&q={{ result_top_id }}" target="_blank"> 
+						{{ result_top_id }}
+					</a></li>
+				{% endif %}	
+			</p>
+
+			<br>
+			{% if result_other_ids %}
+				<h3>YOU NEXT LOOK LIKE:</h3>
+				<ul id="other_ids">
+				
+					{% for id in result_other_ids %}
+						<li><a href="http://images.google.com/search?tbm=isch&q={{ id }}" target="_blank"> 
+							{{ id }} 
+						</a></li>
+					{% endfor %}
+				
+				</ul>
+			{% endif %}
+		</div>
+
+		<div class="col-sm-3">
+			{% if result_image_path %}
+				<img class="img-responsive center-block" src="{{ result_image_path }}">
+			{% endif %}	
+		</div>
+
+		<div class="col-sm-3">
+			{% if result_features %}
+				<h3>BECAUSE OF YOUR:</h3>
+				<ul id="features">
+					{% for feature in result_features %}
+						<li>{{ feature }}</li>
+					{% endfor %}
+
+
+				</ul>
+			{% else %}
+				<p>
+					Sorry, the significant features don't correspond to any particular facial landmark.
+				</p>
+				<p>
+					Try to adjust the filter or certainty level.
+				</p>
+			{% endif %}
+		</div>
+		<div class="col-sm-3">
+			{% if best_feature %}
+				{% load static%}
+				{% with "main/"|add:best_feature|add:".gif" as gif_static %}
+					<img class="img-responsive" src="{%static gif_static%}">
+				{% endwith %}
+			{% endif %}	
+		</div>
+
+	</div>
+
+{% endif %}

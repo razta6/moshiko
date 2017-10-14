@@ -1,0 +1,36 @@
+<!-- QUERY SECTION -->
+
+		<div class="row">
+
+			<div class="col-sm-12">
+				<h2>QUERY</h2>
+			</div>
+		</div>
+		
+		<div class="row inner">
+			<div class="col-sm-12">
+				<p>
+					GO AHEAD, give it a try<br>
+					Upload an image or take a photo with your mobile device...
+				</p>
+			</div>
+		</div>
+
+		<div class="row vertical-align inner">
+			<div class="col-sm-4">
+				<!-- Query Image -->
+				<form action="{% url 'index' %}#results" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+						{{ form }}
+						<input type="submit" value="SEND">
+				</form>
+			</div>
+			<div class="col-sm-8">
+				{% load static%}
+				<img class="img-responsive img-rounded img-module center-block" style="max-width: 60%" src="{% static "main/moshik_example.jpg" %}">
+				
+			</div>
+
+		</div>
+
+

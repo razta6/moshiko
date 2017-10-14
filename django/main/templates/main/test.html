@@ -1,0 +1,66 @@
+s{% extends 'main/base.html' %}
+
+{% block body %}
+
+
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-sm-12 col-sm-12">
+			<h1>RESULTS SECTION:</h1>
+			<h3>
+				{% if err_msg %}
+					{{ err_msg }}
+				{% endif %}
+			</h3>
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-4 col-sm-4">
+			<h3>YOU LOOK MOSTLY LIKE:</h3>
+			<p>
+				{% if result_top_id %}
+					{{ result_top_id }}
+				{% endif %}	
+			</p>
+
+			<br>
+
+			<h3>YOU NEXT LOOK LIKE:</h3>
+			<ul id="other_ids">
+			{% if result_other_ids %}
+				{% for id in result_other_ids %}
+					<li> {{ id }} </li>
+				{% endfor %}
+			{% endif %}
+			</ul>
+			
+		</div>
+
+		<div class="col-sm-4 col-sm-4">
+			{% if result_image_path %}
+				<img src="{{ result_image_path }}">
+			{% endif %}	
+		</div>
+
+		<div class="col-sm-4 col-sm-4">
+			<h3>BECAUSE OF YOUR:</h3>
+			<ul id="features">
+			{% if result_features %}
+				{% for feature in result_features %}
+					<li>{{ result_features }}</li>
+				{% endfor %}
+			{% endif %}	
+			</ul>		
+		</div>
+
+
+	</div>
+
+</div>
+
+{% endblock %}

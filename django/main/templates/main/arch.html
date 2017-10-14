@@ -1,0 +1,61 @@
+<!-- ARCHITECTURE SECTION -->
+
+<div class="row">
+	<div class="col-sm-12">
+		<h2>ARCHITECTURE</h2>
+	</div>
+</div>
+
+
+<div class="row vertical-align inner">
+	<div class="col-sm-4">
+		<p>
+			The system pipeline is built from 4 concatenated modules. <br>
+			An input image is sent by the user and then it passes through:
+		</p>
+		<ul id="modules">
+			<li>Face detection module</li>
+			<li>VGG Face descripotr module</li>
+			<li>Grad-CAM module</li>
+			<li>Feature extraction module</li>
+		</ul>
+		<p>
+			The output is then sent back and presented to the user.
+		</p>
+		{% load static%}
+		<p>
+			A more thorough description is provided in the <a href="{% static "main/design_doc.pdf" %}" target="_blank">design document</a>.
+		</p>
+	</div>
+	<div class="col-sm-8">
+		<img src="{% static "main/core-flow.png" %}" class="img-responsive center-block img-rounded" id="flow" %}">
+	</div>
+</div>
+
+<div class="row vertical-align inner">
+	<div class="col-sm-4">
+
+		<p>
+			<span class="module-title">VGG-Face Descriptor</span> - a Convolutional Neural network (CNN) bsaed on the VGG-Very-Deep-16 network which is at a state-of-the-art level at face recognition.
+		</p>
+		<p>
+			Reference: <a href="http://www.robots.ox.ac.uk/~vgg/software/vgg_face/" target="_blank">http://www.robots.ox.ac.uk/~vgg/software/vgg_face/</a>
+		</p>
+	</div>
+	<div class="col-sm-8">
+		<img src="{% static "main/vgg.png" %}" class="img-module img-responsive center-block img-rounded" id="vgg">
+	</div>
+</div>
+<div class="row inner vertical-align">
+	<div class="col-sm-4 col-sm-push-8">
+		<p>
+			<span class="module-title">Gradient-weighted Class Activation Map (Grad-CAM)</span> - A technique for producing "visual explenation" for decisions from a large class of CNN-based models, making them more transperent. Grad-CAM uses the gradients of any target concept,  flowing into the final convolutional layer to produce a coarse localization map highlighting the important regions in the image for predicting the concept. Unlike previous approaches. Grad-CAM is applicable for a wide variety of CNN model-families.
+		</p>
+		<p>
+			Reference: <a href="https://arxiv.org/abs/1610.02391" target="_blank">https://arxiv.org/abs/1610.02391</a>
+		</p>
+	</div>
+	<div class="col-sm-8 col-sm-pull-4">
+		<img src="{% static "main/gradcam.jpeg" %}" class="img-module img-responsive center-block img-rounded" id="gradcam">
+	</div>
+</div>
